@@ -1,0 +1,18 @@
+<h2>Your Log</h2>
+
+<table>
+    <tr>
+        <th>actor</th>
+        <th>text</th>
+        <th>date</th>
+    </tr>
+    {% for user_log_line in user_log_lines %}
+    <tr>
+        <td>{{ user_log_line.actor.name }}</td>
+        <td>{{ user_log_line.text }}</td>
+        <td>{{ user_log_line.date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'coin_handler:index' person.id %}">Back</a>

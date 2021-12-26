@@ -1,0 +1,18 @@
+<h2>Your currencies amounts</h2>
+
+<table>
+    <tr>
+        <th>Currency</th>
+        <th>Amount</th>
+    </tr>
+    {% for person_currency in person_currencies %}
+    <tr>
+        <td>{{ person_currency.currency.name }}</td>
+        <td>{{ person_currency.amount }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'coin_handler:log' person.id %}">Log</a>
+|
+<a href="{% url 'coin_handler:send cash' person.id %}">Send cash</a>

@@ -1,0 +1,15 @@
+<h2>Log in</h2>
+
+<form action="{% url 'coin_handler:process login' %}" method="post">
+    {% csrf_token %}
+
+    <select name="person">
+        {% for person in people %}
+        <option value="{{ person.id }}">{{ person.name }}</option>
+        {% endfor %}
+    </select>
+
+    <input type="submit" value="Send">
+</form>
+
+{% if result_message %}<p><strong>{{ result_message }}</strong></p>{% endif %}

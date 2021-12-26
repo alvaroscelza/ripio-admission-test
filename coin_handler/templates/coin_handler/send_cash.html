@@ -1,0 +1,24 @@
+<h2>Send Cash</h2>
+
+<form action="{% url 'coin_handler:process cash sending' person.id %}" method="post">
+    {% csrf_token %}
+
+    <select name="addressee">
+        {% for addressee in possible_addresses %}
+        <option value="{{ addressee.id }}">{{ addressee.name }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="currency">
+        {% for person_currency in person_currencies %}
+        <option value="{{ person_currency.currency.id }}">{{ person_currency.currency.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="number" placeholder="amount" name="amount">
+
+    <input type="submit" value="Send">
+</form>
+
+{% if result_message %}<p><strong>{{ result_message }}</strong></p>{% endif %}
+
+<a href="{% url 'coin_handler:index' person.id %}">Back</a>

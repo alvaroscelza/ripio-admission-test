@@ -1,0 +1,24 @@
+- model: coin_handler.person
+  pk: 1
+  fields:
+    name: Jhon Doe
+- model: coin_handler.person
+  pk: 2
+  fields:
+    name: Juan Perez
+
+- model: coin_handler.Currency
+  pk: 1
+  fields:
+    name: Pesos
+- model: coin_handler.Currency
+  pk: 2
+  fields:
+    name: Dollars
+
+- model: coin_handler.AmountOfCurrency
+  pk: 1
+  fields:
+    currency: 1
+    owner: 1
+    amount: 50
